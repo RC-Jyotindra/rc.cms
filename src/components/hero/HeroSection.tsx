@@ -29,7 +29,7 @@ export function HeroSection({ content, showAdminBadge = true }: HeroSectionProps
               alt="Research Connect Logo"
               className="h-7 w-7 sm:h-8 sm:w-8 rounded-full object-cover"
             />
-            <span className="text-[#ff007f]">Surveys</span>
+            <span className="text-[#ff007f] hidden sm:inline">Research Connect Surveys</span>
           </a>
           <a
             href={primaryUrl}
