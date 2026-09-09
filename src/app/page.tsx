@@ -7,7 +7,7 @@ export default async function HomePage() {
   const hero = await getHero('home')
 
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-gradient-to-b from-white via-[#faf8fa] to-[#fdf2f7]">
       <HeroSection content={hero} showAdminBadge={true} />
     </main>
   )

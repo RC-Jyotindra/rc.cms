@@ -3,17 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Google Ads - Get More Customers With Online Advertising</title>
+  <title>Research Connect Surveys</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
   
   <style>
     :root {
-      --google-blue: #1a73e8;
-      --google-blue-hover: #1557b0;
-      --google-blue-light: #e8f0fe;
-      --google-blue-surface: #d2e3fc;
+      --brand-pink: #ff007f;
+      --brand-pink-hover: #e0006f;
+      --brand-pink-light: #fff0f5;
+      --brand-pink-surface: #ffd6e7;
+      --google-blue: #ff007f;
+      --google-blue-hover: #e0006f;
+      --google-blue-light: #fff0f5;
+      --google-blue-surface: #ffd6e7;
       --text-main: #202124;
       --text-sub: #5f6368;
       --border-color: #dadce0;
@@ -30,7 +34,12 @@
     body {
       font-family: 'Google Sans', Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       color: var(--text-main);
-      background-color: var(--surface);
+      background: 
+        radial-gradient(ellipse 70% 40% at 50% -15%, rgba(255, 0, 127, 0.04), transparent 70%),
+        radial-gradient(ellipse 60% 40% at 90% 25%, rgba(255, 0, 127, 0.025), transparent 60%),
+        linear-gradient(180deg, #ffffff 0%, #faf8fa 30%, #f7f3f6 70%, #fdf2f7 100%);
+      background-attachment: fixed;
+      min-height: 100vh;
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
@@ -47,8 +56,10 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: var(--surface);
-      border-bottom: 1px solid #eaeaea;
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
       height: 64px;
       display: flex;
       align-items: center;
@@ -74,10 +85,15 @@
       gap: 10px;
     }
 
+    .brand-name span {
+      color: #ff007f;
+    }
+
     .brand-logo {
-      height: 32px;
-      width: auto;
-      object-fit: contain;
+      height: 34px;
+      width: 34px;
+      border-radius: 50%;
+      object-fit: cover;
       display: block;
     }
 
@@ -114,6 +130,7 @@
 
     .promo-banner {
       background-color: var(--google-blue-light);
+      border: 1px solid var(--brand-pink-surface);
       border-radius: 28px;
       padding: 10px 20px;
       display: flex;
@@ -277,8 +294,8 @@
     }
 
     .btn-hero-secondary:hover {
-      background-color: rgba(26, 115, 232, 0.04);
-      border-color: #c6c9ce;
+      background-color: rgba(255, 0, 127, 0.04);
+      border-color: #ffd6e7;
     }
 
     /* Hero Visual Showcase */
@@ -368,7 +385,7 @@
     }
 
     .mockup-card-price {
-      color: #1a73e8;
+      color: #ff007f;
       font-size: 8.5px;
       font-weight: 600;
       margin-top: 2px;
@@ -593,11 +610,11 @@
     <div class="header-inner">
       <div class="brand-name" id="navbar-brand">
         <img 
-          src="https://res.cloudinary.com/dkwrm0luo/image/upload/v1788947942/logo_g1zdpl.webp" 
+          src="https://res.cloudinary.com/dkwrm0luo/image/upload/v1788949929/logo_pkqahi.jpg" 
           alt="Research Connect Logo" 
           class="brand-logo"
         />
-        <span>Research Connect Surveys</span>
+        <span style="color: #ff007f;">Surveys</span>
       </div>
       <div class="header-action">
         <a href="#offers" id="navbar-btn" class="btn-navbar">Start Now</a>

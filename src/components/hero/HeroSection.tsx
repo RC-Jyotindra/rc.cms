@@ -18,22 +18,22 @@ export function HeroSection({ content, showAdminBadge = true }: HeroSectionProps
   const bannerImage = content?.banner_image_url || 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=80'
 
   return (
-    <div className="relative min-h-[580px] flex flex-col bg-white text-slate-900 selection:bg-blue-600 selection:text-white">
+    <div className="relative min-h-[580px] flex flex-col bg-gradient-to-b from-white via-[#faf8fa] to-[#fdf2f7] text-slate-900 selection:bg-[#ff007f] selection:text-white">
       {/* Simple Top Navigation Bar: Name + Button */}
-      <header className="sticky top-0 z-30 bg-white/95 backdrop-blur-sm border-b border-slate-200/80">
+      <header className="sticky top-0 z-30 bg-white/80 backdrop-blur-md border-b border-slate-200/60">
         <div className="max-w-6xl mx-auto px-6 h-15 flex items-center justify-between">
           <a href="#" className="flex items-center gap-2.5 font-bold text-base sm:text-lg text-slate-900 tracking-tight">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="https://res.cloudinary.com/dkwrm0luo/image/upload/v1788947942/logo_g1zdpl.webp"
+              src="https://res.cloudinary.com/dkwrm0luo/image/upload/v1788949929/logo_pkqahi.jpg"
               alt="Research Connect Logo"
-              className="h-7 sm:h-8 w-auto object-contain"
+              className="h-7 w-7 sm:h-8 sm:w-8 rounded-full object-cover"
             />
-            <span>Research Connect Surveys</span>
+            <span className="text-[#ff007f]">Surveys</span>
           </a>
           <a
             href={primaryUrl}
-            className="inline-flex items-center justify-center px-5 py-2 rounded-full bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium shadow-xs transition-colors"
+            className="inline-flex items-center justify-center px-5 py-2 rounded-full bg-[#ff007f] hover:bg-[#e0006f] text-white text-xs font-medium shadow-xs transition-colors"
           >
             {primaryLabel}
           </a>
@@ -55,7 +55,7 @@ export function HeroSection({ content, showAdminBadge = true }: HeroSectionProps
           {/* Left / Text Content */}
           <div className="lg:col-span-7 flex flex-col items-start space-y-5 text-left">
             {/* Campaign Category Tag */}
-            <div className="inline-flex items-center gap-1.5 rounded-md bg-blue-50 border border-blue-200/80 px-2.5 py-1 text-xs font-medium text-blue-800">
+            <div className="inline-flex items-center gap-1.5 rounded-md bg-pink-50 border border-pink-200/80 px-2.5 py-1 text-xs font-medium text-pink-800">
               <span>Verified Research Connect Study</span>
             </div>
 
@@ -74,7 +74,7 @@ export function HeroSection({ content, showAdminBadge = true }: HeroSectionProps
               {primaryLabel && (
                 <a
                   href={primaryUrl}
-                  className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-md bg-blue-600 hover:bg-blue-700 text-white font-medium text-sm transition-colors shadow-xs"
+                  className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-md bg-[#ff007f] hover:bg-[#e0006f] text-white font-medium text-sm transition-colors shadow-xs"
                 >
                   <span>{primaryLabel}</span>
                   <ArrowRight className="w-4 h-4" />
@@ -84,7 +84,7 @@ export function HeroSection({ content, showAdminBadge = true }: HeroSectionProps
               {secondaryLabel && (
                 <a
                   href={secondaryUrl}
-                  className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-md border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 font-medium text-sm transition-colors"
+                  className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-md border border-slate-300 bg-white hover:bg-pink-50/50 hover:border-pink-200 text-slate-700 font-medium text-sm transition-colors"
                 >
                   <span>{secondaryLabel}</span>
                   <ExternalLink className="w-3.5 h-3.5 text-slate-500" />
@@ -127,14 +127,14 @@ export function HeroSection({ content, showAdminBadge = true }: HeroSectionProps
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=200&q=80" className="w-full h-10 rounded object-cover bg-slate-200" alt="AI & Tech Study" />
                     <div className="font-medium text-slate-900 mt-1 text-[8.5px] truncate">AI &amp; Tech Study</div>
-                    <div className="text-blue-600 font-semibold text-[8px]">$30 Honorarium</div>
+                    <div className="text-[#ff007f] font-semibold text-[8px]">$30 Honorarium</div>
                     <div className="text-slate-500 text-[7.5px]">⏱ 20 min survey</div>
                   </div>
                   <div className="bg-slate-50 rounded-md p-1 border border-slate-100">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=200&q=80" className="w-full h-10 rounded object-cover bg-slate-200" alt="Consumer Insights" />
                     <div className="font-medium text-slate-900 mt-1 text-[8.5px] truncate">Consumer Insights</div>
-                    <div className="text-blue-600 font-semibold text-[8px]">$25 Honorarium</div>
+                    <div className="text-[#ff007f] font-semibold text-[8px]">$25 Honorarium</div>
                     <div className="text-slate-500 text-[7.5px]">⏱ 15 min survey</div>
                   </div>
                 </div>
