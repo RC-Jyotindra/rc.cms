@@ -8,12 +8,12 @@ interface HeroSectionProps {
 }
 
 export function HeroSection({ content, showAdminBadge = true }: HeroSectionProps) {
-  const textBanner = content?.text_banner ?? 'New to Google Ads? Choose an offer to earn up to ₹20,000 in ad credit.'
-  const mainHeader = content?.main_header ?? 'Drive Growth and Reach Customers with Smart Advertising'
-  const descriptionHeader = content?.description_header ?? 'Get your business in front of customers right when they are searching for what you offer on Google Search and Maps.'
-  const primaryLabel = content?.primary_button_label ?? 'Start Now'
+  const textBanner = content?.text_banner ?? '[Verified Research Study] Participate in online surveys & earn guaranteed participant honorarium rewards.'
+  const mainHeader = content?.main_header ?? 'Share Your Voice & Earn Verified Research Honorariums'
+  const descriptionHeader = content?.description_header ?? 'Research Connect USA links qualified participants with leading institutional and corporate research projects. Complete quick surveys and receive legitimate honorariums and gift vouchers for your time.'
+  const primaryLabel = content?.primary_button_label ?? 'Start Survey'
   const primaryUrl = content?.primary_button_url ?? '#'
-  const secondaryLabel = content?.secondary_button_label ?? 'Explore Offers'
+  const secondaryLabel = content?.secondary_button_label ?? 'Study Guidelines'
   const secondaryUrl = content?.secondary_button_url ?? '#'
   const bannerImage = content?.banner_image_url || 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=80'
 
@@ -22,8 +22,14 @@ export function HeroSection({ content, showAdminBadge = true }: HeroSectionProps
       {/* Simple Top Navigation Bar: Name + Button */}
       <header className="sticky top-0 z-30 bg-white/95 backdrop-blur-sm border-b border-slate-200/80">
         <div className="max-w-6xl mx-auto px-6 h-15 flex items-center justify-between">
-          <a href="#" className="font-bold text-lg text-slate-900 tracking-tight">
-            Ads Portal
+          <a href="#" className="flex items-center gap-2.5 font-bold text-base sm:text-lg text-slate-900 tracking-tight">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="https://res.cloudinary.com/dkwrm0luo/image/upload/v1788947942/logo_g1zdpl.webp"
+              alt="Research Connect Logo"
+              className="h-7 sm:h-8 w-auto object-contain"
+            />
+            <span>Research Connect Surveys</span>
           </a>
           <a
             href={primaryUrl}
@@ -38,7 +44,7 @@ export function HeroSection({ content, showAdminBadge = true }: HeroSectionProps
       {textBanner && (
         <TextBanner
           text={textBanner}
-          ctaText={content?.banner_cta_text || 'Claim Offer'}
+          ctaText={content?.banner_cta_text || 'Participate Now'}
           ctaUrl={primaryUrl}
         />
       )}
@@ -50,7 +56,7 @@ export function HeroSection({ content, showAdminBadge = true }: HeroSectionProps
           <div className="lg:col-span-7 flex flex-col items-start space-y-5 text-left">
             {/* Campaign Category Tag */}
             <div className="inline-flex items-center gap-1.5 rounded-md bg-blue-50 border border-blue-200/80 px-2.5 py-1 text-xs font-medium text-blue-800">
-              <span>Google Ads Partner Campaign</span>
+              <span>Verified Research Connect Study</span>
             </div>
 
             {/* Main Header */}
@@ -88,11 +94,11 @@ export function HeroSection({ content, showAdminBadge = true }: HeroSectionProps
 
             {/* Trust Signals */}
             <div className="pt-4 flex items-center gap-4 text-xs text-slate-500 border-t border-slate-200 w-full">
-              <div>Verified Partner</div>
+              <div>ESOMAR Compliant</div>
               <span className="text-slate-300">•</span>
-              <div>No Setup Fees</div>
+              <div>Guaranteed Honorarium</div>
               <span className="text-slate-300">•</span>
-              <div>Cancel Anytime</div>
+              <div>100% Confidential</div>
             </div>
           </div>
 
@@ -106,6 +112,33 @@ export function HeroSection({ content, showAdminBadge = true }: HeroSectionProps
                 alt="Campaign Banner"
                 className="w-full h-full object-cover"
               />
+
+              {/* Research Studies Overlay */}
+              <div className="absolute right-3 bottom-3 w-[55%] max-w-[210px] bg-white rounded-xl p-2 shadow-lg border border-slate-200/80 text-[10px]">
+                <div className="flex items-center gap-1.5 bg-slate-100 rounded-lg px-2 py-1 mb-1.5 font-medium text-slate-800 text-[9px]">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                  </svg>
+                  <span>Available Surveys</span>
+                </div>
+                <div className="grid grid-cols-2 gap-1.5">
+                  <div className="bg-slate-50 rounded-md p-1 border border-slate-100">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=200&q=80" className="w-full h-10 rounded object-cover bg-slate-200" alt="AI & Tech Study" />
+                    <div className="font-medium text-slate-900 mt-1 text-[8.5px] truncate">AI &amp; Tech Study</div>
+                    <div className="text-blue-600 font-semibold text-[8px]">$30 Honorarium</div>
+                    <div className="text-slate-500 text-[7.5px]">⏱ 20 min survey</div>
+                  </div>
+                  <div className="bg-slate-50 rounded-md p-1 border border-slate-100">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=200&q=80" className="w-full h-10 rounded object-cover bg-slate-200" alt="Consumer Insights" />
+                    <div className="font-medium text-slate-900 mt-1 text-[8.5px] truncate">Consumer Insights</div>
+                    <div className="text-blue-600 font-semibold text-[8px]">$25 Honorarium</div>
+                    <div className="text-slate-500 text-[7.5px]">⏱ 15 min survey</div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

@@ -28,15 +28,15 @@ export function HeroEditorForm({ initialData }: HeroEditorFormProps) {
   const [formData, setFormData] = useState<Partial<HeroContent>>({
     id: initialData?.id,
     page_slug: initialData?.page_slug || 'home',
-    text_banner: initialData?.text_banner ?? 'New to Google Ads? Choose an offer to earn up to ₹20,000 in ad credit.',
-    banner_cta_text: initialData?.banner_cta_text ?? 'Claim Offer',
+    text_banner: initialData?.text_banner ?? '[Verified Research Study] Participate in online surveys & earn guaranteed participant honorarium rewards.',
+    banner_cta_text: initialData?.banner_cta_text ?? 'Participate Now',
     banner_image_url: initialData?.banner_image_url ?? 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=80',
-    main_header: initialData?.main_header ?? 'Drive Growth and Reach Customers with Smart Advertising',
-    description_header: initialData?.description_header ?? 'Get your business in front of customers right when they are searching for what you offer on Google Search and Maps.',
-    primary_button_label: initialData?.primary_button_label ?? 'Start Now',
-    primary_button_url: initialData?.primary_button_url ?? 'https://ads.google.com',
-    secondary_button_label: initialData?.secondary_button_label ?? 'Explore Offers',
-    secondary_button_url: initialData?.secondary_button_url ?? '#offers',
+    main_header: initialData?.main_header ?? 'Share Your Voice & Earn Verified Research Honorariums',
+    description_header: initialData?.description_header ?? 'Research Connect USA links qualified participants with leading institutional and corporate research projects. Complete quick surveys and receive legitimate honorariums and gift vouchers for your time.',
+    primary_button_label: initialData?.primary_button_label ?? 'Start Survey',
+    primary_button_url: initialData?.primary_button_url ?? '#',
+    secondary_button_label: initialData?.secondary_button_label ?? 'Study Guidelines',
+    secondary_button_url: initialData?.secondary_button_url ?? '#',
     is_published: initialData?.is_published ?? true,
   })
 
@@ -273,7 +273,7 @@ export function HeroEditorForm({ initialData }: HeroEditorFormProps) {
                     name="text_banner"
                     value={formData.text_banner || ''}
                     onChange={handleChange}
-                    placeholder="e.g. New to Google Ads? Choose an offer to earn up to ₹20,000 in ad credit..."
+                    placeholder="e.g. [Verified Research Study] Participate in online surveys & earn guaranteed honorariums..."
                     className="w-full px-3 py-2 rounded-md bg-white border border-slate-300 focus:border-slate-900 focus:ring-1 focus:ring-slate-900 text-xs text-slate-900 placeholder-slate-400"
                   />
                 </div>
@@ -286,7 +286,7 @@ export function HeroEditorForm({ initialData }: HeroEditorFormProps) {
                     name="banner_cta_text"
                     value={formData.banner_cta_text || ''}
                     onChange={handleChange}
-                    placeholder="e.g. Claim Offer"
+                    placeholder="e.g. Participate Now"
                     className="w-full px-3 py-2 rounded-md bg-white border border-slate-300 focus:border-slate-900 focus:ring-1 focus:ring-slate-900 text-xs text-slate-900 placeholder-slate-400"
                   />
                 </div>
@@ -309,7 +309,7 @@ export function HeroEditorForm({ initialData }: HeroEditorFormProps) {
                   name="main_header"
                   value={formData.main_header || ''}
                   onChange={handleChange}
-                  placeholder="e.g. Drive Growth and Reach Customers with Smart Advertising"
+                  placeholder="e.g. Share Your Voice & Earn Verified Research Honorariums"
                   className="w-full px-3 py-2 rounded-md bg-white border border-slate-300 focus:border-slate-900 focus:ring-1 focus:ring-slate-900 text-xs text-slate-900 placeholder-slate-400"
                 />
               </div>
@@ -323,7 +323,7 @@ export function HeroEditorForm({ initialData }: HeroEditorFormProps) {
                   name="description_header"
                   value={formData.description_header || ''}
                   onChange={handleChange}
-                  placeholder="e.g. Get your business in front of customers right when they are searching..."
+                  placeholder="e.g. Research Connect USA links qualified participants with leading research projects..."
                   className="w-full px-3 py-2 rounded-md bg-white border border-slate-300 focus:border-slate-900 focus:ring-1 focus:ring-slate-900 text-xs text-slate-900 placeholder-slate-400"
                 />
               </div>
@@ -346,7 +346,7 @@ export function HeroEditorForm({ initialData }: HeroEditorFormProps) {
                     name="primary_button_label"
                     value={formData.primary_button_label || ''}
                     onChange={handleChange}
-                    placeholder="Start Now"
+                    placeholder="Start Survey"
                     className="w-full px-3 py-2 rounded-md bg-white border border-slate-300 focus:border-slate-900 text-xs text-slate-900 placeholder-slate-400"
                   />
                 </div>
@@ -374,7 +374,7 @@ export function HeroEditorForm({ initialData }: HeroEditorFormProps) {
                     name="secondary_button_label"
                     value={formData.secondary_button_label || ''}
                     onChange={handleChange}
-                    placeholder="Explore Offers"
+                    placeholder="Study Guidelines"
                     className="w-full px-3 py-2 rounded-md bg-white border border-slate-300 focus:border-slate-900 text-xs text-slate-900 placeholder-slate-400"
                   />
                 </div>

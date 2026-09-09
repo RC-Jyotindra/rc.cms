@@ -69,6 +69,16 @@
       font-weight: 700;
       color: var(--text-main);
       letter-spacing: -0.4px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-logo {
+      height: 32px;
+      width: auto;
+      object-fit: contain;
+      display: block;
     }
 
     .btn-navbar {
@@ -358,14 +368,16 @@
     }
 
     .mockup-card-price {
-      color: #5f6368;
-      font-size: 8px;
-      margin-top: 1px;
+      color: #1a73e8;
+      font-size: 8.5px;
+      font-weight: 600;
+      margin-top: 2px;
     }
 
     .mockup-card-stars {
-      color: #fbbc05;
+      color: #5f6368;
       font-size: 8px;
+      margin-top: 1px;
     }
 
 
@@ -580,7 +592,12 @@
   <header class="header">
     <div class="header-inner">
       <div class="brand-name" id="navbar-brand">
-        Research Connect Surveys
+        <img 
+          src="https://res.cloudinary.com/dkwrm0luo/image/upload/v1788947942/logo_g1zdpl.webp" 
+          alt="Research Connect Logo" 
+          class="brand-logo"
+        />
+        <span>Research Connect Surveys</span>
       </div>
       <div class="header-action">
         <a href="#offers" id="navbar-btn" class="btn-navbar">Start Now</a>
@@ -594,11 +611,11 @@
       <div class="promo-banner" id="promo-banner-container">
         <div class="promo-content">
           <span class="promo-text" id="text-banner">
-            New to Google Ads? Choose an offer to earn up to ₹20,000 in ad credit.
+            Participate in online surveys &amp; earn guaranteed participant honorarium rewards.
           </span>
         </div>
         <a href="#offers" id="promo-cta-btn" class="promo-cta">
-          <span id="promo-cta-text">Claim Offer</span>
+          <span id="promo-cta-text">Participate Now</span>
           <span class="promo-cta-circle">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -615,17 +632,17 @@
         <!-- Left Content -->
         <div class="hero-content">
           <h1 class="hero-title" id="main-header">
-            Drive Growth and Reach Customers with Smart Advertising
+            Share Your Voice &amp; Earn Verified Research Honorariums
           </h1>
           <p class="hero-desc" id="description-header">
-            Get your business in front of customers right when they are searching for what you offer on Google Search and Maps.
+            Research Connect USA links qualified participants with leading institutional and corporate research projects. Complete quick surveys and receive legitimate honorariums and gift vouchers for your time.
           </p>
           <div class="hero-cta-group">
-            <a href="https://ads.google.com" id="primary-btn" class="btn-hero-primary">
-              Start Now
+            <a href="#offers" id="primary-btn" class="btn-hero-primary">
+              Start Survey
             </a>
             <a href="#offers" id="secondary-btn" class="btn-hero-secondary">
-              Explore Offers
+              Study Guidelines
             </a>
           </div>
         </div>
@@ -640,7 +657,30 @@
               class="visual-image"
             />
 
-            
+            <!-- Research Studies Overlay -->
+            <div class="mockup-overlay">
+              <div class="mockup-search-bar">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <span>Available Surveys</span>
+              </div>
+              <div class="mockup-shopping-cards">
+                <div class="mockup-card">
+                  <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=200&q=80" class="mockup-card-img" alt="AI & Tech Trends Study">
+                  <div class="mockup-card-title">AI &amp; Tech Trends</div>
+                  <div class="mockup-card-price">$30 Honorarium</div>
+                  <div class="mockup-card-stars">⏱ 20 min survey</div>
+                </div>
+                <div class="mockup-card">
+                  <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=200&q=80" class="mockup-card-img" alt="Consumer Insights Study">
+                  <div class="mockup-card-title">Consumer Insights</div>
+                  <div class="mockup-card-price">$25 Honorarium</div>
+                  <div class="mockup-card-stars">⏱ 15 min survey</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -696,8 +736,8 @@
 
   <!-- Discreet CMS sync badge -->
   <div class="sync-indicator" id="sync-status">
-    <span class="sync-dot"></span>
-    <span id="sync-label">Connected to Supabase</span>
+    <!-- <span class="sync-dot"></span> -->
+    <span id="sync-label"></span>
   </div>
 
   <!-- Supabase Dynamic Data Hydration Script -->
