@@ -40,9 +40,18 @@ export function HeroEditorForm({ initialData }: HeroEditorFormProps) {
   })
 
   const DEFAULT_CARDS: HeroCard[] = [
-    { heading: 'Earn Rewards Fast', description: 'Complete surveys in minutes and receive honorariums directly to your account.' },
-    { heading: '100% Legitimate Research', description: 'We work with top institutional researchers following ESOMAR guidelines.' },
-    { heading: 'Your Privacy Protected', description: 'All responses are anonymised per DPDP Act standards before statistical analysis.' },
+    {
+      heading: 'Participant Honorarium Policy',
+      description: 'Honorariums and gift vouchers are research tokens provided in accordance with ESOMAR international guidelines to thank citizens for their dedicated time. Only qualified, unique, and non-fraudulent submissions are processed.'
+    },
+    {
+      heading: 'Data Protection Standard',
+      description: 'We adhere strictly to DPDP Act principles. Personal identifying information (PII) is isolated from survey responses during statistical calculation to safeguard individual participant privacy.'
+    },
+    {
+      heading: 'Institutional Authenticity',
+      description: 'Research Connect USA is an independent research consulting collective. We do not sell consumer loans, financial instruments, or physical goods.'
+    },
   ]
 
   const [cards, setCards] = useState<HeroCard[]>(
@@ -421,44 +430,53 @@ export function HeroEditorForm({ initialData }: HeroEditorFormProps) {
               )}
             </div>
 
-            {/* Fieldset: Feature Cards */}
+            {/* Fieldset: Participant Honorarium & Privacy Policies */}
             <div className="space-y-4 pt-1">
               <div className="border-b border-slate-200 pb-2">
-                <h3 className="text-xs font-semibold text-slate-900 uppercase tracking-wider">Feature Cards</h3>
-                <p className="text-[11px] text-slate-500">3 cards displayed below the hero section — edit heading and description for each</p>
+                <h3 className="text-xs font-semibold text-slate-900 uppercase tracking-wider">Policy & Privacy Standards</h3>
+                <p className="text-[11px] text-slate-500">Edit the 3 policy columns (Participant Honorarium Policy, Data Protection Standard, Institutional Authenticity) displayed in the footer</p>
               </div>
 
-              {cards.map((card, index) => (
-                <div key={index} className="p-4 rounded-lg border border-slate-200 bg-slate-50 space-y-3">
-                  <div className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Card {index + 1}</div>
+              {cards.map((card, index) => {
+                const defaultTitles = [
+                  'Participant Honorarium Policy',
+                  'Data Protection Standard',
+                  'Institutional Authenticity',
+                ]
+                return (
+                  <div key={index} className="p-4 rounded-lg border border-slate-200 bg-slate-50 space-y-3">
+                    <div className="text-[11px] font-semibold text-slate-700 uppercase tracking-wider">
+                      Policy {index + 1}: <span className="text-slate-900 normal-case font-medium">{defaultTitles[index] || `Policy ${index + 1}`}</span>
+                    </div>
 
-                  <div>
-                    <label className="block text-xs font-medium text-slate-700 mb-1">
-                      Heading
-                    </label>
-                    <input
-                      type="text"
-                      value={card.heading}
-                      onChange={(e) => handleCardChange(index, 'heading', e.target.value)}
-                      placeholder={`Card ${index + 1} heading`}
-                      className="w-full px-3 py-2 rounded-md bg-white border border-slate-300 focus:border-slate-900 focus:ring-1 focus:ring-slate-900 text-xs text-slate-900 placeholder-slate-400"
-                    />
-                  </div>
+                    <div>
+                      <label className="block text-xs font-medium text-slate-700 mb-1">
+                        Heading / Title
+                      </label>
+                      <input
+                        type="text"
+                        value={card.heading}
+                        onChange={(e) => handleCardChange(index, 'heading', e.target.value)}
+                        placeholder={`Policy ${index + 1} heading`}
+                        className="w-full px-3 py-2 rounded-md bg-white border border-slate-300 focus:border-slate-900 focus:ring-1 focus:ring-slate-900 text-xs text-slate-900 placeholder-slate-400"
+                      />
+                    </div>
 
-                  <div>
-                    <label className="block text-xs font-medium text-slate-700 mb-1">
-                      Description
-                    </label>
-                    <textarea
-                      rows={2}
-                      value={card.description}
-                      onChange={(e) => handleCardChange(index, 'description', e.target.value)}
-                      placeholder={`Card ${index + 1} description`}
-                      className="w-full px-3 py-2 rounded-md bg-white border border-slate-300 focus:border-slate-900 focus:ring-1 focus:ring-slate-900 text-xs text-slate-900 placeholder-slate-400"
-                    />
+                    <div>
+                      <label className="block text-xs font-medium text-slate-700 mb-1">
+                        Content / Description
+                      </label>
+                      <textarea
+                        rows={3}
+                        value={card.description}
+                        onChange={(e) => handleCardChange(index, 'description', e.target.value)}
+                        placeholder={`Policy ${index + 1} description`}
+                        className="w-full px-3 py-2 rounded-md bg-white border border-slate-300 focus:border-slate-900 focus:ring-1 focus:ring-slate-900 text-xs text-slate-900 placeholder-slate-400"
+                      />
+                    </div>
                   </div>
-                </div>
-              ))}
+                )
+              })}
             </div>
 
             {/* Bottom Form Actions */}
@@ -495,7 +513,7 @@ export function HeroEditorForm({ initialData }: HeroEditorFormProps) {
           </div>
 
           <div className="rounded-xl overflow-hidden border border-slate-300 shadow-sm bg-white">
-            <HeroSection content={formData} showAdminBadge={false} />
+            <HeroSection content={{ ...formData, cards }} showAdminBadge={false} />
           </div>
         </div>
       </div>

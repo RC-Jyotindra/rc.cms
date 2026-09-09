@@ -647,42 +647,6 @@
     </section>
   </main>
 
-  <!-- Feature Cards Section -->
-  <section class="cards-section">
-    <div class="container">
-      <p class="cards-section-label">Why Choose Us</p>
-      <h2 class="cards-section-title">Everything you need to get started</h2>
-
-      <div class="cards-grid">
-        <!-- Card 1 -->
-        <article class="feature-card">
-          <div class="card-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1a73e8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-          </div>
-          <h3 class="card-heading" id="card-1-heading">Earn Rewards Fast</h3>
-          <p class="card-description" id="card-1-desc">Complete surveys in minutes and receive honorariums directly to your account.</p>
-        </article>
-
-        <!-- Card 2 -->
-        <article class="feature-card">
-          <div class="card-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1a73e8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-          </div>
-          <h3 class="card-heading" id="card-2-heading">100% Legitimate Research</h3>
-          <p class="card-description" id="card-2-desc">We work with top institutional researchers following ESOMAR guidelines.</p>
-        </article>
-
-        <!-- Card 3 -->
-        <article class="feature-card">
-          <div class="card-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1a73e8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-          </div>
-          <h3 class="card-heading" id="card-3-heading">Your Privacy Protected</h3>
-          <p class="card-description" id="card-3-desc">All responses are anonymised per DPDP Act standards before statistical analysis.</p>
-        </article>
-      </div>
-    </div>
-  </section>
 
   <!-- Site Footer -->
   <footer class="site-footer">
@@ -690,22 +654,22 @@
       <!-- 3-Column Policy & Standards Grid -->
       <div class="footer-policies-grid">
         <div class="footer-policy-col">
-          <h3 class="footer-policy-title">Participant Honorarium Policy</h3>
-          <p class="footer-policy-text">
+          <h3 class="footer-policy-title" id="policy-1-title">Participant Honorarium Policy</h3>
+          <p class="footer-policy-text" id="policy-1-text">
             Honorariums and gift vouchers are research tokens provided in accordance with ESOMAR international guidelines to thank citizens for their dedicated time. Only qualified, unique, and non-fraudulent submissions are processed.
           </p>
         </div>
 
         <div class="footer-policy-col">
-          <h3 class="footer-policy-title">Data Protection Standard</h3>
-          <p class="footer-policy-text">
+          <h3 class="footer-policy-title" id="policy-2-title">Data Protection Standard</h3>
+          <p class="footer-policy-text" id="policy-2-text">
             We adhere strictly to DPDP Act principles. Personal identifying information (PII) is isolated from survey responses during statistical calculation to safeguard individual participant privacy.
           </p>
         </div>
 
         <div class="footer-policy-col">
-          <h3 class="footer-policy-title">Institutional Authenticity</h3>
-          <p class="footer-policy-text">
+          <h3 class="footer-policy-title" id="policy-3-title">Institutional Authenticity</h3>
+          <p class="footer-policy-text" id="policy-3-text">
             Research Connect USA is an independent research consulting collective. We do not sell consumer loans, financial instruments, or physical goods.
           </p>
         </div>
@@ -830,12 +794,12 @@
         if (img) img.src = hero.banner_image_url;
       }
 
-      // 7. Feature Cards (JSONB array)
+      // 7. Policy & Standards Columns (JSONB array from CMS)
       if (hero.cards && Array.isArray(hero.cards) && hero.cards.length > 0) {
         hero.cards.forEach(function(card, index) {
-          const cardNum = index + 1;
-          const headingEl = document.getElementById('card-' + cardNum + '-heading');
-          const descEl = document.getElementById('card-' + cardNum + '-desc');
+          const colNum = index + 1;
+          const headingEl = document.getElementById('policy-' + colNum + '-title');
+          const descEl = document.getElementById('policy-' + colNum + '-text');
           if (headingEl && card.heading) headingEl.innerText = card.heading;
           if (descEl && card.description) descEl.innerText = card.description;
         });
