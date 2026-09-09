@@ -7,6 +7,7 @@ export type HeroContent = {
   id: string;
   page_slug: string;
   text_banner: string | null;
+  banner_cta_text?: string | null;
   banner_image_url: string | null;
   main_header: string | null;
   description_header: string | null;

@@ -598,7 +598,7 @@
           </span>
         </div>
         <a href="#offers" id="promo-cta-btn" class="promo-cta">
-          <span>Claim Offer</span>
+          <span id="promo-cta-text">Claim Offer</span>
           <span class="promo-cta-circle">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -731,7 +731,7 @@
           const hero = data[0];
           console.log('[CMS Sync] Successfully loaded live data from Supabase:', hero);
           applyHeroData(hero);
-          if (syncLabel) syncLabel.innerText = 'Synced with CMS (Supabase)';
+          if (syncLabel) syncLabel.innerText = '';
         } else {
           console.log('[CMS Sync] No rows found in Supabase hero_content table, using default values.');
           if (syncLabel) syncLabel.innerText = 'Using default template';
@@ -750,6 +750,12 @@
           // If text contains HTML or plain text
           bannerEl.innerHTML = hero.text_banner;
         }
+      }
+
+      // 1b. Banner CTA Text
+      if (hero.banner_cta_text) {
+        const ctaTextEl = document.getElementById('promo-cta-text');
+        if (ctaTextEl) ctaTextEl.innerText = hero.banner_cta_text;
       }
 
       // 2. Main Header

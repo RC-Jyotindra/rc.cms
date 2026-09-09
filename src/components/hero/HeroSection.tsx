@@ -35,7 +35,13 @@ export function HeroSection({ content, showAdminBadge = true }: HeroSectionProps
       </header>
 
       {/* Top Text Banner */}
-      {textBanner && <TextBanner text={textBanner} />}
+      {textBanner && (
+        <TextBanner
+          text={textBanner}
+          ctaText={content?.banner_cta_text || 'Claim Offer'}
+          ctaUrl={primaryUrl}
+        />
+      )}
 
       {/* Hero Body */}
       <div className="relative flex-1 flex items-center justify-center px-6 lg:px-12 py-16 lg:py-20 border-b border-slate-100">

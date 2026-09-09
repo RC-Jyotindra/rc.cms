@@ -29,6 +29,7 @@ export function HeroEditorForm({ initialData }: HeroEditorFormProps) {
     id: initialData?.id,
     page_slug: initialData?.page_slug || 'home',
     text_banner: initialData?.text_banner ?? 'New to Google Ads? Choose an offer to earn up to ₹20,000 in ad credit.',
+    banner_cta_text: initialData?.banner_cta_text ?? 'Claim Offer',
     banner_image_url: initialData?.banner_image_url ?? 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=80',
     main_header: initialData?.main_header ?? 'Drive Growth and Reach Customers with Smart Advertising',
     description_header: initialData?.description_header ?? 'Get your business in front of customers right when they are searching for what you offer on Google Search and Maps.',
@@ -128,6 +129,7 @@ export function HeroEditorForm({ initialData }: HeroEditorFormProps) {
         id: formData.id,
         page_slug: formData.page_slug || 'home',
         text_banner: formData.text_banner || '',
+        banner_cta_text: formData.banner_cta_text || 'Claim Offer',
         banner_image_url: formData.banner_image_url || '',
         main_header: formData.main_header || '',
         description_header: formData.description_header || '',
@@ -261,18 +263,33 @@ export function HeroEditorForm({ initialData }: HeroEditorFormProps) {
                 <h3 className="text-xs font-semibold text-slate-900 uppercase tracking-wider">Top Banner</h3>
                 <p className="text-[11px] text-slate-500">Promo ribbon positioned immediately above the hero</p>
               </div>
-              <div>
-                <label className="block text-xs font-medium text-slate-700 mb-1">
-                  Banner Text
-                </label>
-                <input
-                  type="text"
-                  name="text_banner"
-                  value={formData.text_banner || ''}
-                  onChange={handleChange}
-                  placeholder="e.g. New to Google Ads? Choose an offer to earn up to ₹20,000 in ad credit..."
-                  className="w-full px-3 py-2 rounded-md bg-white border border-slate-300 focus:border-slate-900 focus:ring-1 focus:ring-slate-900 text-xs text-slate-900 placeholder-slate-400"
-                />
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div className="sm:col-span-2">
+                  <label className="block text-xs font-medium text-slate-700 mb-1">
+                    Banner Message
+                  </label>
+                  <input
+                    type="text"
+                    name="text_banner"
+                    value={formData.text_banner || ''}
+                    onChange={handleChange}
+                    placeholder="e.g. New to Google Ads? Choose an offer to earn up to ₹20,000 in ad credit..."
+                    className="w-full px-3 py-2 rounded-md bg-white border border-slate-300 focus:border-slate-900 focus:ring-1 focus:ring-slate-900 text-xs text-slate-900 placeholder-slate-400"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-medium text-slate-700 mb-1">
+                    Banner CTA Text
+                  </label>
+                  <input
+                    type="text"
+                    name="banner_cta_text"
+                    value={formData.banner_cta_text || ''}
+                    onChange={handleChange}
+                    placeholder="e.g. Claim Offer"
+                    className="w-full px-3 py-2 rounded-md bg-white border border-slate-300 focus:border-slate-900 focus:ring-1 focus:ring-slate-900 text-xs text-slate-900 placeholder-slate-400"
+                  />
+                </div>
               </div>
             </div>
 

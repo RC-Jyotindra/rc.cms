@@ -38,6 +38,7 @@ export type HeroInput = {
   id?: string
   page_slug: string
   text_banner: string
+  banner_cta_text?: string
   banner_image_url: string
   main_header: string
   description_header: string
@@ -53,9 +54,10 @@ export async function upsertHero(input: HeroInput) {
   // Use admin client so Server Actions bypass RLS for single-admin dashboard
   const supabase = createAdminClient()
 
-  const payload = {
+  const payload: any = {
     page_slug: input.page_slug || 'home',
     text_banner: input.text_banner,
+    banner_cta_text: input.banner_cta_text ?? 'Claim Offer',
     banner_image_url: input.banner_image_url,
     main_header: input.main_header,
     description_header: input.description_header,
@@ -82,6 +84,25 @@ export async function upsertHero(input: HeroInput) {
       .upsert(payload, { onConflict: 'page_slug' })
       .select()
       .single()
+  }
+
+  // Graceful fallback if banner_cta_text column is not yet migrated in Supabase
+  if (result.error && result.error.message.includes('banner_cta_text')) {
+    delete payload.banner_cta_text
+    if (input.id) {
+      result = await supabase
+        .from('hero_content')
+        .update(payload)
+        .eq('id', input.id)
+        .select()
+        .single()
+    } else {
+      result = await supabase
+        .from('hero_content')
+        .upsert(payload, { onConflict: 'page_slug' })
+        .select()
+        .single()
+    }
   }
 
   if (result.error) {
