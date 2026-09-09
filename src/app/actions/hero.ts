@@ -96,35 +96,40 @@ export async function upsertHero(input: HeroInput) {
 }
 
 export async function uploadBannerImage(formData: FormData) {
-  const file = formData.get('file') as File | null
-  if (!file) {
-    return { success: false, error: 'No file provided' }
+  try {
+    const file = formData.get('file') as File | null
+    if (!file) {
+      return { success: false, error: 'No file provided' }
+    }
+
+    const supabase = createAdminClient()
+    const fileExt = file.name ? file.name.split('.').pop()?.toLowerCase() : 'png'
+    const fileName = `banner-${Date.now()}-${Math.random().toString(36).substring(2, 7)}.${fileExt}`
+
+    const arrayBuffer = await file.arrayBuffer()
+    const buffer = Buffer.from(arrayBuffer)
+
+    const { error: uploadError } = await supabase.storage
+      .from('banners')
+      .upload(fileName, buffer, {
+        contentType: file.type || 'image/png',
+        upsert: true,
+      })
+
+    if (uploadError) {
+      console.error('Error uploading image:', uploadError.message)
+      return { success: false, error: uploadError.message }
+    }
+
+    const { data: { publicUrl } } = supabase.storage
+      .from('banners')
+      .getPublicUrl(fileName)
+
+    return { success: true, publicUrl }
+  } catch (err: any) {
+    console.error('Unhandled error in uploadBannerImage:', err)
+    return { success: false, error: err.message || 'Image upload failed' }
   }
-
-  const supabase = createAdminClient()
-  const fileExt = file.name.split('.').pop()
-  const fileName = `banner-${Date.now()}-${Math.random().toString(36).substring(2, 7)}.${fileExt}`
-
-  const arrayBuffer = await file.arrayBuffer()
-  const buffer = Buffer.from(arrayBuffer)
-
-  const { error: uploadError } = await supabase.storage
-    .from('banners')
-    .upload(fileName, buffer, {
-      contentType: file.type,
-      upsert: true,
-    })
-
-  if (uploadError) {
-    console.error('Error uploading image:', uploadError.message)
-    return { success: false, error: uploadError.message }
-  }
-
-  const { data: { publicUrl } } = supabase.storage
-    .from('banners')
-    .getPublicUrl(fileName)
-
-  return { success: true, publicUrl }
 }
 
 export async function deleteHero(id: string) {

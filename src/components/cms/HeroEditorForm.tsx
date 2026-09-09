@@ -67,15 +67,35 @@ export function HeroEditorForm({ initialData }: HeroEditorFormProps) {
     const file = e.target.files?.[0]
     if (!file) return
 
+    // Pre-flight client validation
+    if (!file.type.startsWith('image/')) {
+      toast.error('Please select a valid image file (PNG, JPG, WebP, SVG)')
+      e.target.value = ''
+      return
+    }
+
+    if (file.size > 10 * 1024 * 1024) {
+      toast.error(`Image is too large (${(file.size / (1024 * 1024)).toFixed(1)}MB). Limit is 10MB.`)
+      e.target.value = ''
+      return
+    }
+
     setIsUploading(true)
-    const toastId = toast.loading('Uploading banner image...')
+    const toastId = toast.loading('Uploading banner image to Supabase...')
 
     try {
       const data = new FormData()
       data.append('file', file)
 
-      const res = await uploadBannerImage(data)
-      if (res.success && res.publicUrl) {
+      // Upload via dedicated API route to avoid React Server Action payload limits and error masking
+      const response = await fetch('/api/upload', {
+        method: 'POST',
+        body: data,
+      })
+
+      const res = await response.json()
+
+      if (response.ok && res.success && res.publicUrl) {
         setFormData((prev) => ({ ...prev, banner_image_url: res.publicUrl }))
         toast.success('Banner image uploaded successfully', { id: toastId })
       } else {
@@ -85,6 +105,8 @@ export function HeroEditorForm({ initialData }: HeroEditorFormProps) {
       toast.error(err.message || 'Image upload error', { id: toastId })
     } finally {
       setIsUploading(false)
+      // Reset input value so the same file can be selected again if needed
+      e.target.value = ''
     }
   }
 
