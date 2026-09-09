@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Ads - Get More Customers With Online Advertising</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --google-blue: #1a73e8;
+      --google-blue-hover: #1557b0;
+      --google-blue-light: #e8f0fe;
+      --google-blue-surface: #d2e3fc;
+      --text-main: #202124;
+      --text-sub: #5f6368;
+      --border-color: #dadce0;
+      --surface: #ffffff;
+      --surface-bg: #f8f9fa;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Google Sans', Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: var(--text-main);
+      background-color: var(--surface);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Top Navigation Bar */
+    /* Simple Navbar */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--surface);
+      border-bottom: 1px solid #eaeaea;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      padding: 0 24px;
+    }
+
+    .header-inner {
+      width: 100%;
+      max-width: 1320px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand-name {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-main);
+      letter-spacing: -0.4px;
+    }
+
+    .btn-navbar {
+      background-color: var(--google-blue);
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 9px 22px;
+      border-radius: 9999px;
+      box-shadow: 0 1px 2px rgba(60, 64, 67, 0.2);
+      transition: background-color 0.15s, box-shadow 0.15s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-navbar:hover {
+      background-color: var(--google-blue-hover);
+      box-shadow: 0 2px 5px rgba(60, 64, 67, 0.3);
+    }
+
+    /* Container */
+    .container {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Promo Announcement Banner Strip */
+    .promo-banner-wrap {
+      padding: 16px 0 0;
+    }
+
+    .promo-banner {
+      background-color: var(--google-blue-light);
+      border-radius: 28px;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      transition: opacity 0.2s ease;
+    }
+
+    .promo-content {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 13.5px;
+      color: var(--text-main);
+      flex-wrap: wrap;
+    }
+
+    .promo-icon-badge {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+
+    .promo-text {
+      font-weight: 400;
+    }
+
+    .promo-text a {
+      color: var(--google-blue);
+      text-decoration: underline;
+      font-weight: 500;
+    }
+
+    .promo-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--google-blue);
+      font-size: 14px;
+      font-weight: 500;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .promo-cta-circle {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--google-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      transition: transform 0.15s;
+    }
+
+    .promo-banner:hover .promo-cta-circle {
+      transform: translateX(2px);
+    }
+
+    /* Hero Section */
+    .hero-section {
+      padding: 56px 0 80px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    @media (min-width: 1024px) {
+      .hero-grid {
+        grid-template-columns: 1.15fr 1fr;
+        gap: 64px;
+      }
+    }
+
+    .hero-content {
+      max-width: 600px;
+    }
+
+    .hero-title {
+      font-size: 40px;
+      line-height: 1.12;
+      font-weight: 700;
+      color: var(--text-main);
+      letter-spacing: -0.8px;
+      margin-bottom: 20px;
+    }
+
+    @media (min-width: 768px) {
+      .hero-title {
+        font-size: 56px;
+        letter-spacing: -1.2px;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .hero-title {
+        font-size: 64px;
+      }
+    }
+
+    .hero-desc {
+      font-size: 18px;
+      line-height: 1.5;
+      color: var(--text-sub);
+      font-weight: 400;
+      margin-bottom: 36px;
+      max-width: 520px;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn-hero-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--google-blue);
+      color: #ffffff;
+      font-size: 15px;
+      font-weight: 500;
+      padding: 13px 32px;
+      border-radius: 9999px;
+      box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+      transition: background-color 0.15s, box-shadow 0.15s;
+      min-width: 120px;
+    }
+
+    .btn-hero-primary:hover {
+      background-color: var(--google-blue-hover);
+      box-shadow: 0 2px 5px rgba(60, 64, 67, 0.35);
+    }
+
+    .btn-hero-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #ffffff;
+      color: var(--google-blue);
+      font-size: 15px;
+      font-weight: 500;
+      padding: 12px 28px;
+      border-radius: 9999px;
+      border: 1px solid var(--border-color);
+      transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .btn-hero-secondary:hover {
+      background-color: rgba(26, 115, 232, 0.04);
+      border-color: #c6c9ce;
+    }
+
+    /* Hero Visual Showcase */
+    .hero-visual {
+      position: relative;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .visual-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 560px;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.08);
+      background: #f1f3f4;
+    }
+
+    .visual-image {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 11;
+      object-fit: cover;
+      display: block;
+      transition: opacity 0.3s;
+    }
+
+    /* Mockup Overlay (Festive shopping ad on Google) */
+    .mockup-overlay {
+      position: absolute;
+      right: 16px;
+      bottom: 16px;
+      width: 52%;
+      max-width: 250px;
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 10px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.18);
+      border: 1px solid rgba(0,0,0,0.06);
+      font-size: 10px;
+    }
+
+    .mockup-search-bar {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: #f1f3f4;
+      border-radius: 12px;
+      padding: 4px 8px;
+      margin-bottom: 6px;
+      font-weight: 500;
+      color: #202124;
+    }
+
+    .mockup-shopping-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+    }
+
+    .mockup-card {
+      background: #fafafa;
+      border-radius: 8px;
+      padding: 4px;
+      border: 1px solid #f1f3f4;
+    }
+
+    .mockup-card-img {
+      width: 100%;
+      height: 48px;
+      border-radius: 4px;
+      object-fit: cover;
+      background: #eaeaea;
+    }
+
+    .mockup-card-title {
+      font-weight: 500;
+      color: #202124;
+      margin-top: 2px;
+      font-size: 9px;
+      line-height: 1.1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .mockup-card-price {
+      color: #5f6368;
+      font-size: 8px;
+      margin-top: 1px;
+    }
+
+    .mockup-card-stars {
+      color: #fbbc05;
+      font-size: 8px;
+    }
+
+
+
+    /* Live Sync Status Indicator (Discreet) */
+    .sync-indicator {
+      position: fixed;
+      left: 16px;
+      bottom: 16px;
+      font-size: 11px;
+      color: #9aa0a6;
+      background: rgba(255,255,255,0.9);
+      padding: 4px 10px;
+      border-radius: 12px;
+      border: 1px solid #dadce0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      z-index: 50;
+      opacity: 0.6;
+      transition: opacity 0.2s;
+    }
+    .sync-indicator:hover {
+      opacity: 1;
+    }
+    .sync-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #34a853;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Simple Navigation Bar -->
+  <header class="header">
+    <div class="header-inner">
+      <div class="brand-name" id="navbar-brand">
+        Research Connect Surveys
+      </div>
+      <div class="header-action">
+        <a href="#offers" id="navbar-btn" class="btn-navbar">Start Now</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Top Announcement Banner -->
+    <section class="container promo-banner-wrap">
+      <div class="promo-banner" id="promo-banner-container">
+        <div class="promo-content">
+          <div class="promo-icon-badge">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M4 11l4.5-8.5L20 8l-8.5 4.5L4 11z" fill="#4285F4"/>
+              <path d="M2.5 13.5l3-1.5 1.5 3-3 1.5-1.5-3z" fill="#FBBC05"/>
+              <circle cx="17" cy="4" r="1.5" fill="#EA4335"/>
+              <circle cx="21" cy="13" r="1.5" fill="#34A853"/>
+            </svg>
+          </div>
+          <span class="promo-text" id="text-banner">
+            New to Google Ads? Choose an offer to earn up to ₹20,000 in ad credit.
+          </span>
+        </div>
+        <a href="#offers" id="promo-cta-btn" class="promo-cta">
+          <span>Claim Offer</span>
+          <span class="promo-cta-circle">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Hero Section -->
+    <section class="container hero-section">
+      <div class="hero-grid">
+        <!-- Left Content -->
+        <div class="hero-content">
+          <h1 class="hero-title" id="main-header">
+            Drive Growth and Reach Customers with Smart Advertising
+          </h1>
+          <p class="hero-desc" id="description-header">
+            Get your business in front of customers right when they are searching for what you offer on Google Search and Maps.
+          </p>
+          <div class="hero-cta-group">
+            <a href="https://ads.google.com" id="primary-btn" class="btn-hero-primary">
+              Start Now
+            </a>
+            <a href="#offers" id="secondary-btn" class="btn-hero-secondary">
+              Explore Offers
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Hero Visual -->
+        <div class="hero-visual">
+          <div class="visual-wrapper">
+            <img 
+              id="banner-img" 
+              src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=80" 
+              alt="Campaign Banner" 
+              class="visual-image"
+            />
+
+            <!-- Shopping Card Overlay -->
+            <div class="mockup-overlay">
+              <div class="mockup-search-bar">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <span>Tealight Holder</span>
+              </div>
+              <div class="mockup-shopping-cards">
+                <div class="mockup-card">
+                  <img src="https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=200&q=80" class="mockup-card-img" alt="Product 1">
+                  <div class="mockup-card-title">Tealight Holder</div>
+                  <div class="mockup-card-price">₹800</div>
+                  <div class="mockup-card-stars">★★★★★</div>
+                </div>
+                <div class="mockup-card">
+                  <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=200&q=80" class="mockup-card-img" alt="Product 2">
+                  <div class="mockup-card-title">Tealight Holder</div>
+                  <div class="mockup-card-price">₹900</div>
+                  <div class="mockup-card-stars">★★★★★</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+
+  <!-- Discreet CMS sync badge -->
+  <div class="sync-indicator" id="sync-status">
+    <span class="sync-dot"></span>
+    <span id="sync-label">Connected to Supabase</span>
+  </div>
+
+  <!-- Supabase Dynamic Data Hydration Script -->
+  <script>
+    const SUPABASE_CONFIG = {
+      url: "https://zyajcfamtdrildvhwqcs.supabase.co",
+      anonKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inp5YWpjZmFtdGRyaWxkdmh3cWNzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODg4NTIxNzgsImV4cCI6MjEwNDQyODE3OH0.B8-8hYOg9CLslcRD1MtM_OXY_jR2xP1T_78hcNFrxHM",
+      pageSlug: "home"
+    };
+
+    async function fetchHeroContent() {
+      const syncLabel = document.getElementById('sync-label');
+      try {
+        // Fetch hero data for pageSlug
+        const endpoint = `${SUPABASE_CONFIG.url}/rest/v1/hero_content?page_slug=eq.${SUPABASE_CONFIG.pageSlug}&select=*`;
+        const response = await fetch(endpoint, {
+          method: 'GET',
+          headers: {
+            'apikey': SUPABASE_CONFIG.anonKey,
+            'Authorization': `Bearer ${SUPABASE_CONFIG.anonKey}`,
+            'Accept': 'application/json'
+          }
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        if (data && data.length > 0) {
+          const hero = data[0];
+          console.log('[CMS Sync] Successfully loaded live data from Supabase:', hero);
+          applyHeroData(hero);
+          if (syncLabel) syncLabel.innerText = 'Synced with CMS (Supabase)';
+        } else {
+          console.log('[CMS Sync] No rows found in Supabase hero_content table, using default values.');
+          if (syncLabel) syncLabel.innerText = 'Using default template';
+        }
+      } catch (error) {
+        console.warn('[CMS Sync] Note: Direct fetch fallback active (if opened via file:// or offline):', error);
+        if (syncLabel) syncLabel.innerText = 'CMS Default Content';
+      }
+    }
+
+    function applyHeroData(hero) {
+      // 1. Text Banner
+      if (hero.text_banner) {
+        const bannerEl = document.getElementById('text-banner');
+        if (bannerEl) {
+          // If text contains HTML or plain text
+          bannerEl.innerHTML = hero.text_banner;
+        }
+      }
+
+      // 2. Main Header
+      if (hero.main_header) {
+        const headerEl = document.getElementById('main-header');
+        if (headerEl) headerEl.innerText = hero.main_header;
+      }
+
+      // 3. Description Header
+      if (hero.description_header) {
+        const descEl = document.getElementById('description-header');
+        if (descEl) descEl.innerText = hero.description_header;
+      }
+
+      // 4. Primary Button
+      if (hero.primary_button_label) {
+        const btn = document.getElementById('primary-btn');
+        const navBtn = document.getElementById('navbar-btn');
+        if (btn) btn.innerText = hero.primary_button_label;
+        if (navBtn) navBtn.innerText = hero.primary_button_label;
+      }
+      if (hero.primary_button_url) {
+        const btn = document.getElementById('primary-btn');
+        const navBtn = document.getElementById('navbar-btn');
+        if (btn) btn.href = hero.primary_button_url;
+        if (navBtn) navBtn.href = hero.primary_button_url;
+      }
+
+      // 5. Secondary Button
+      if (hero.secondary_button_label) {
+        const btn = document.getElementById('secondary-btn');
+        if (btn) btn.innerText = hero.secondary_button_label;
+      }
+      if (hero.secondary_button_url) {
+        const btn = document.getElementById('secondary-btn');
+        if (btn) btn.href = hero.secondary_button_url;
+      }
+
+      // 6. Banner Image
+      if (hero.banner_image_url) {
+        const img = document.getElementById('banner-img');
+        if (img) img.src = hero.banner_image_url;
+      }
+    }
+
+
+
+    // Run on load
+    document.addEventListener('DOMContentLoaded', fetchHeroContent);
+  </script>
+</body>
+</html>
