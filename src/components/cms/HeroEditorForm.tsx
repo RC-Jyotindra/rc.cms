@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useTransition } from 'react'
-import { HeroContent } from '@/types/hero'
+import { HeroContent, HeroCard } from '@/types/hero'
 import { upsertHero, uploadBannerImage } from '@/app/actions/hero'
 import { HeroSection } from '../hero/HeroSection'
 import { 
@@ -39,6 +39,16 @@ export function HeroEditorForm({ initialData }: HeroEditorFormProps) {
     is_published: initialData?.is_published ?? true,
   })
 
+  const DEFAULT_CARDS: HeroCard[] = [
+    { heading: 'Earn Rewards Fast', description: 'Complete surveys in minutes and receive honorariums directly to your account.' },
+    { heading: '100% Legitimate Research', description: 'We work with top institutional researchers following ESOMAR guidelines.' },
+    { heading: 'Your Privacy Protected', description: 'All responses are anonymised per DPDP Act standards before statistical analysis.' },
+  ]
+
+  const [cards, setCards] = useState<HeroCard[]>(
+    (initialData?.cards && initialData.cards.length > 0) ? initialData.cards : DEFAULT_CARDS
+  )
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
@@ -47,6 +57,10 @@ export function HeroEditorForm({ initialData }: HeroEditorFormProps) {
   const handleCheckbox = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, checked } = e.target
     setFormData((prev) => ({ ...prev, [name]: checked }))
+  }
+
+  const handleCardChange = (index: number, field: keyof HeroCard, value: string) => {
+    setCards((prev) => prev.map((c, i) => i === index ? { ...c, [field]: value } : c))
   }
 
   const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -90,6 +104,7 @@ export function HeroEditorForm({ initialData }: HeroEditorFormProps) {
         primary_button_url: formData.primary_button_url || '',
         secondary_button_label: formData.secondary_button_label || '',
         secondary_button_url: formData.secondary_button_url || '',
+        cards: cards,
         is_published: !!formData.is_published,
       })
 
@@ -382,6 +397,46 @@ export function HeroEditorForm({ initialData }: HeroEditorFormProps) {
                   </div>
                 </div>
               )}
+            </div>
+
+            {/* Fieldset: Feature Cards */}
+            <div className="space-y-4 pt-1">
+              <div className="border-b border-slate-200 pb-2">
+                <h3 className="text-xs font-semibold text-slate-900 uppercase tracking-wider">Feature Cards</h3>
+                <p className="text-[11px] text-slate-500">3 cards displayed below the hero section — edit heading and description for each</p>
+              </div>
+
+              {cards.map((card, index) => (
+                <div key={index} className="p-4 rounded-lg border border-slate-200 bg-slate-50 space-y-3">
+                  <div className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Card {index + 1}</div>
+
+                  <div>
+                    <label className="block text-xs font-medium text-slate-700 mb-1">
+                      Heading
+                    </label>
+                    <input
+                      type="text"
+                      value={card.heading}
+                      onChange={(e) => handleCardChange(index, 'heading', e.target.value)}
+                      placeholder={`Card ${index + 1} heading`}
+                      className="w-full px-3 py-2 rounded-md bg-white border border-slate-300 focus:border-slate-900 focus:ring-1 focus:ring-slate-900 text-xs text-slate-900 placeholder-slate-400"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-medium text-slate-700 mb-1">
+                      Description
+                    </label>
+                    <textarea
+                      rows={2}
+                      value={card.description}
+                      onChange={(e) => handleCardChange(index, 'description', e.target.value)}
+                      placeholder={`Card ${index + 1} description`}
+                      className="w-full px-3 py-2 rounded-md bg-white border border-slate-300 focus:border-slate-900 focus:ring-1 focus:ring-slate-900 text-xs text-slate-900 placeholder-slate-400"
+                    />
+                  </div>
+                </div>
+              ))}
             </div>
 
             {/* Bottom Form Actions */}

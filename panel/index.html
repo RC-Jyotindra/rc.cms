@@ -397,6 +397,181 @@
       border-radius: 50%;
       background: #34a853;
     }
+
+    /* Feature Cards Section */
+    .cards-section {
+      padding: 64px 0 72px;
+      background-color: var(--surface-bg);
+      border-top: 1px solid var(--border-color);
+    }
+
+    .cards-section-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--google-blue);
+      margin-bottom: 10px;
+    }
+
+    .cards-section-title {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--text-main);
+      letter-spacing: -0.5px;
+      margin-bottom: 40px;
+    }
+
+    @media (min-width: 768px) {
+      .cards-section-title {
+        font-size: 34px;
+      }
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    @media (min-width: 640px) {
+      .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .cards-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .feature-card {
+      background: var(--surface);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 28px 24px;
+      transition: box-shadow 0.2s ease, transform 0.2s ease;
+    }
+
+    .feature-card:hover {
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
+      transform: translateY(-2px);
+    }
+
+    .card-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--google-blue-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .card-heading {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+
+    .card-description {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--text-sub);
+    }
+
+    /* Site Footer */
+    .site-footer {
+      background-color: #f8fafc;
+      border-top: 1px solid #e2e8f0;
+      padding: 54px 0 40px;
+      margin-top: 50px;
+      color: #475569;
+      font-size: 13px;
+    }
+
+    .footer-policies-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    @media (min-width: 768px) {
+      .footer-policies-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 36px;
+      }
+    }
+
+    .footer-policy-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 10px;
+      line-height: 1.3;
+      letter-spacing: -0.2px;
+    }
+
+    .footer-policy-text {
+      font-size: 12.5px;
+      line-height: 1.65;
+      color: #475569;
+    }
+
+    .footer-bottom-bar {
+      padding-top: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+
+    @media (min-width: 860px) {
+      .footer-bottom-bar {
+        flex-direction: row;
+        align-items: flex-start;
+      }
+    }
+
+    .footer-copyright {
+      font-weight: 700;
+      color: #0f172a;
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+
+    .footer-registration {
+      font-size: 11.5px;
+      color: #64748b;
+      line-height: 1.45;
+    }
+
+    .footer-nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 22px;
+      font-size: 12.5px;
+    }
+
+    .footer-nav-links a {
+      color: #475569;
+      font-weight: 500;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.15s ease;
+    }
+
+    .footer-nav-links a:hover {
+      color: #0f172a;
+    }
   </style>
 </head>
 <body>
@@ -418,14 +593,6 @@
     <section class="container promo-banner-wrap">
       <div class="promo-banner" id="promo-banner-container">
         <div class="promo-content">
-          <div class="promo-icon-badge">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-              <path d="M4 11l4.5-8.5L20 8l-8.5 4.5L4 11z" fill="#4285F4"/>
-              <path d="M2.5 13.5l3-1.5 1.5 3-3 1.5-1.5-3z" fill="#FBBC05"/>
-              <circle cx="17" cy="4" r="1.5" fill="#EA4335"/>
-              <circle cx="21" cy="13" r="1.5" fill="#34A853"/>
-            </svg>
-          </div>
           <span class="promo-text" id="text-banner">
             New to Google Ads? Choose an offer to earn up to ₹20,000 in ad credit.
           </span>
@@ -473,35 +640,93 @@
               class="visual-image"
             />
 
-            <!-- Shopping Card Overlay -->
-            <div class="mockup-overlay">
-              <div class="mockup-search-bar">
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                  <circle cx="11" cy="11" r="8"></circle>
-                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                </svg>
-                <span>Tealight Holder</span>
-              </div>
-              <div class="mockup-shopping-cards">
-                <div class="mockup-card">
-                  <img src="https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=200&q=80" class="mockup-card-img" alt="Product 1">
-                  <div class="mockup-card-title">Tealight Holder</div>
-                  <div class="mockup-card-price">₹800</div>
-                  <div class="mockup-card-stars">★★★★★</div>
-                </div>
-                <div class="mockup-card">
-                  <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=200&q=80" class="mockup-card-img" alt="Product 2">
-                  <div class="mockup-card-title">Tealight Holder</div>
-                  <div class="mockup-card-price">₹900</div>
-                  <div class="mockup-card-stars">★★★★★</div>
-                </div>
-              </div>
-            </div>
+            
           </div>
         </div>
       </div>
     </section>
   </main>
+
+  <!-- Feature Cards Section -->
+  <section class="cards-section">
+    <div class="container">
+      <p class="cards-section-label">Why Choose Us</p>
+      <h2 class="cards-section-title">Everything you need to get started</h2>
+
+      <div class="cards-grid">
+        <!-- Card 1 -->
+        <article class="feature-card">
+          <div class="card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1a73e8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+          </div>
+          <h3 class="card-heading" id="card-1-heading">Earn Rewards Fast</h3>
+          <p class="card-description" id="card-1-desc">Complete surveys in minutes and receive honorariums directly to your account.</p>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="feature-card">
+          <div class="card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1a73e8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+          </div>
+          <h3 class="card-heading" id="card-2-heading">100% Legitimate Research</h3>
+          <p class="card-description" id="card-2-desc">We work with top institutional researchers following ESOMAR guidelines.</p>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="feature-card">
+          <div class="card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1a73e8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          </div>
+          <h3 class="card-heading" id="card-3-heading">Your Privacy Protected</h3>
+          <p class="card-description" id="card-3-desc">All responses are anonymised per DPDP Act standards before statistical analysis.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <!-- 3-Column Policy & Standards Grid -->
+      <div class="footer-policies-grid">
+        <div class="footer-policy-col">
+          <h3 class="footer-policy-title">Participant Honorarium Policy</h3>
+          <p class="footer-policy-text">
+            Honorariums and gift vouchers are research tokens provided in accordance with ESOMAR international guidelines to thank citizens for their dedicated time. Only qualified, unique, and non-fraudulent submissions are processed.
+          </p>
+        </div>
+
+        <div class="footer-policy-col">
+          <h3 class="footer-policy-title">Data Protection Standard</h3>
+          <p class="footer-policy-text">
+            We adhere strictly to DPDP Act principles. Personal identifying information (PII) is isolated from survey responses during statistical calculation to safeguard individual participant privacy.
+          </p>
+        </div>
+
+        <div class="footer-policy-col">
+          <h3 class="footer-policy-title">Institutional Authenticity</h3>
+          <p class="footer-policy-text">
+            Research Connect USA is an independent research consulting collective. We do not sell consumer loans, financial instruments, or physical goods.
+          </p>
+        </div>
+      </div>
+
+      <!-- Bottom Bar with Legal Copyright and Links -->
+      <div class="footer-bottom-bar">
+        <div class="footer-legal-copy">
+          <p class="footer-copyright">
+            &copy; 2026 Research Connect USA. All Rights Reserved.
+          </p>
+        </div>
+
+        <nav class="footer-nav-links" aria-label="Footer Links">
+          <a href="https://www.research-connectllc.com/privacy-policy.php" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+          <a href="https://www.research-connectllc.com/terms-of-use.php" target="_blank" rel="noopener noreferrer">Terms of Participation</a>
+          <a href="https://www.research-connectllc.com/contact-us.php" target="_blank" rel="noopener noreferrer">Contact Us</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
 
 
 
@@ -603,6 +828,17 @@
       if (hero.banner_image_url) {
         const img = document.getElementById('banner-img');
         if (img) img.src = hero.banner_image_url;
+      }
+
+      // 7. Feature Cards (JSONB array)
+      if (hero.cards && Array.isArray(hero.cards) && hero.cards.length > 0) {
+        hero.cards.forEach(function(card, index) {
+          const cardNum = index + 1;
+          const headingEl = document.getElementById('card-' + cardNum + '-heading');
+          const descEl = document.getElementById('card-' + cardNum + '-desc');
+          if (headingEl && card.heading) headingEl.innerText = card.heading;
+          if (descEl && card.description) descEl.innerText = card.description;
+        });
       }
     }
 

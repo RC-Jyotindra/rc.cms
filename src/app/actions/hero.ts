@@ -2,7 +2,7 @@
 
 import { createClient } from '@/lib/supabase/server'
 import { createAdminClient } from '@/lib/supabase/admin'
-import { HeroContent } from '@/types/hero'
+import { HeroContent, HeroCard } from '@/types/hero'
 import { revalidatePath } from 'next/cache'
 
 export async function getHero(slug: string = 'home'): Promise<HeroContent | null> {
@@ -45,6 +45,7 @@ export type HeroInput = {
   primary_button_url: string
   secondary_button_label: string
   secondary_button_url: string
+  cards: HeroCard[]
   is_published: boolean
 }
 
@@ -62,6 +63,7 @@ export async function upsertHero(input: HeroInput) {
     primary_button_url: input.primary_button_url,
     secondary_button_label: input.secondary_button_label,
     secondary_button_url: input.secondary_button_url,
+    cards: input.cards,
     is_published: input.is_published,
     updated_at: new Date().toISOString(),
   }

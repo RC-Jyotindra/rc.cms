@@ -105,6 +105,51 @@ export function HeroSection({ content, showAdminBadge = true }: HeroSectionProps
         </div>
       </div>
 
+      {/* Site Footer */}
+      <footer className="bg-slate-50 border-t border-slate-200 py-12 px-6 lg:px-12 text-slate-600 text-xs mt-auto">
+        <div className="max-w-6xl mx-auto space-y-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pb-8 border-b border-slate-200">
+            <div>
+              <h3 className="font-bold text-slate-900 text-sm mb-2">Participant Honorarium Policy</h3>
+              <p className="text-slate-600 leading-relaxed text-[12px]">
+                Honorariums and gift vouchers are research tokens provided in accordance with ESOMAR international guidelines to thank citizens for their dedicated time. Only qualified, unique, and non-fraudulent submissions are processed.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="font-bold text-slate-900 text-sm mb-2">Data Protection Standard</h3>
+              <p className="text-slate-600 leading-relaxed text-[12px]">
+                We adhere strictly to DPDP Act principles. Personal identifying information (PII) is isolated from survey responses during statistical calculation to safeguard individual participant privacy.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="font-bold text-slate-900 text-sm mb-2">Institutional Authenticity</h3>
+              <p className="text-slate-600 leading-relaxed text-[12px]">
+                Verve Insights Group is an independent research consulting collective. We do not sell consumer loans, financial instruments, or physical goods.
+              </p>
+            </div>
+          </div>
+
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 pt-2">
+            <div>
+              <p className="font-bold text-slate-900 text-[12.5px]">
+                &copy; 2026 Verve Insights Group Pvt. Ltd. All Rights Reserved.
+              </p>
+              <p className="text-slate-500 text-[11px] mt-0.5">
+                CIN: U74140DL2022PTC892110 | Registered Office: Barakhamba Road, Connaught Place, New Delhi 110001, India.
+              </p>
+            </div>
+
+            <nav className="flex flex-wrap items-center gap-5 text-[12px]">
+              <a href="https://www.research-connectllc.com/privacy-policy.php" target="_blank" rel="noopener noreferrer" className="text-slate-700 underline underline-offset-2 hover:text-slate-900">Privacy Policy</a>
+              <a href="https://www.research-connectllc.com/terms-of-use.php" target="_blank" rel="noopener noreferrer" className="text-slate-700 underline underline-offset-2 hover:text-slate-900">Terms of Participation</a>
+              <a href="https://www.research-connectllc.com/contact-us.php" target="_blank" rel="noopener noreferrer" className="text-slate-700 underline underline-offset-2 hover:text-slate-900">Contact Us</a>
+            </nav>
+          </div>
+        </div>
+      </footer>
+
       {/* Floating CMS Edit Button for preview convenience */}
       {showAdminBadge && (
         <div className="fixed bottom-5 right-5 z-50">
